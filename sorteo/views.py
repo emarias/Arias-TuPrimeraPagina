@@ -19,8 +19,9 @@ def crear_jugador(request):
         if formulario.is_valid():
             nombre = formulario.cleaned_data.get("nombre")
             apellido = formulario.cleaned_data.get("apellido")
+            dni= formulario.cleaned_data.get("dni")
             numero_sorteado = random.randint(1,100)
-            jjugador = Jugador(nombre=nombre,apellido=apellido,numero_sorteado=numero_sorteado)
+            jjugador = Jugador(nombre=nombre,apellido=apellido,dni=dni,numero_sorteado=numero_sorteado)
             jjugador.save()
             return redirect("resultados")
     return render(request, 'crear_jugador.html',{'formulario':formulario})

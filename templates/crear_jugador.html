@@ -14,14 +14,6 @@
     <h1>Ingrese para participar</h1>
     <form action={% url "crear_jugador" %} method="POST">
         {% csrf_token %}
-        {% comment "" %}<p>
-            Nombre
-            <input type="text" name="nombre">
-        </p>
-        <p>
-            Apellido
-            <input type="text" name="apellido">
-        </p>{% endcomment %}
         <table>
             {{formulario}}
         </table>
