@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "resultados" %}>Resultados de participantes</a>
+    </nav>
+
+    <h1>Ingrese para participar</h1>
+    <form action={% url "crear_jugador" %} method="POST">
+        {% csrf_token %}
+        {% comment "" %}<p>
+            Nombre
+            <input type="text" name="nombre">
+        </p>
+        <p>
+            Apellido
+            <input type="text" name="apellido">
+        </p>{% endcomment %}
+        <table>
+            {{formulario}}
+        </table>
+        <input type="submit" value="Participar">
+    </form>
+</body>
+</html>
